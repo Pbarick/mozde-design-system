@@ -1,0 +1,17 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundations/Light and Dark mode" />
+
+# Light and Dark mode
+
+Use the **Theme** switch in the Storybook toolbar to view any component in Light or Dark.
+
+- Every color is a CSS variable defined in `src/theme/theme.css`.
+- Dark values apply when the page has `data-theme="dark"`.
+- Components use variables such as `var(--white-ffffff)` instead of fixed hex colors.
+
+## Rules
+
+1. Never type a raw hex color in a component.
+2. Text on the footer uses `--text-on-footer`, because the footer surface changes between modes.
+3. Images and logos do not change with the theme.

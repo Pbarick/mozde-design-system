@@ -1,0 +1,69 @@
+/* Mozde theme tokens. Values come from the live Figma "Color" collection (Light and Dark modes).
+   Light is the default. Dark applies when <html data-theme="dark"> is set. */
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --black-101010: #101010;
+  --darkgray-2b2b2b: #2b2b2b;
+  --gray-999999: #666666;
+  --bordergray-d5d5d5: #d5d5d5;
+  --mediumgray-e7e7e7: #e7e7e7;
+  --lightgray-f5f5f5: #f5f5f5;
+  --white-ffffff: #ffffff;
+  --errorred-910a2d: #910a2d;
+  --s2-fdfdfd: #fdfdfd;
+  --s4-f1f1f1: #f1f1f1;
+  --s6-dbdbdb: #dbdbdb;
+  --s6-c3c3c3: #c3c3c3;
+  --s7-939393: #666666;
+  --s8-646464: #646464;
+  --s9-515151: #515151;
+  --s10-343434: #343434;
+  --s11-2d2d2d: #2d2d2d;
+  --s12-232323: #232323;
+  --instructional-text: #953b52;
+  --text-muted: #666666;
+  --border-control: #949494;
+  --text-on-footer: #c9c9c9;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --black-101010: #efefef;
+  --darkgray-2b2b2b: #d4d4d4;
+  --gray-999999: #828282;
+  --bordergray-d5d5d5: #2a2a2a;
+  --mediumgray-e7e7e7: #181818;
+  --lightgray-f5f5f5: #0a0a0a;
+  --white-ffffff: #000000;
+  --errorred-910a2d: #f13661;
+  --s2-fdfdfd: #020202;
+  --s4-f1f1f1: #0e0e0e;
+  --s6-dbdbdb: #242424;
+  --s6-c3c3c3: #3c3c3c;
+  --s7-939393: #828282;
+  --s8-646464: #9b9b9b;
+  --s9-515151: #aeaeae;
+  --s10-343434: #cbcbcb;
+  --s11-2d2d2d: #d2d2d2;
+  --s12-232323: #dcdcdc;
+  --instructional-text: #c1677e;
+  --text-muted: #a8a8a8;
+  --border-control: #5a5a5a;
+  --text-on-footer: #3a3a3a;
+}
+
+/* Page defaults so the whole app follows the theme, with a short fade when switching. */
+html, body {
+  background-color: var(--white-ffffff);
+  color: var(--black-101010);
+}
+body {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  body { transition: none; }
+}
