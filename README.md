@@ -1,73 +1,78 @@
-# Mozde React App
+# Mozde Design System
 
-This folder contains pages from your design system rebuilt as real React
-components, rebranded from "Mazda" to the fictional placeholder "Mozde" for
-safe portfolio / demo use. Real car model names and real news-outlet content
-have also been swapped for generic placeholders, for the same reason.
+An enterprise-style design system for a corporate newsroom and intranet portal: designed in Figma, translated into a reusable React component library, and documented in Storybook with Light and Dark themes.
 
-## What's inside
+> Mozde is a fictional product name used for this portfolio project.
 
-### Shared components
-- src/components/Header.jsx    — top utility nav + main header bar with logo and primary nav
-- src/components/Footer.jsx    — full site footer, link columns, IT support card, legal bar
+## At a glance
 
-### Two Column Page
-- src/components/Sidebar.jsx   — sidebar nav items, collapsible accordion nav, filter accordions
-- src/components/Breadcrumb.jsx — breadcrumb trail (Home > Level 1 > Level 2 > Page)
-- src/TwoColumnPage.jsx         — the page itself, assembles all the above pieces together
+| | |
+|---|---|
+| **What it is** | A token-driven React + Tailwind component library with page templates built from it |
+| **Scale** | 32 components, 31 Storybook story files, 4 full page templates |
+| **Theming** | Light and Dark modes driven by CSS variables, with a live theme switch |
+| **Documentation** | Storybook (interactive docs and controls) and a [developer handoff guide](docs/DEVELOPER_GUIDE.md) |
+| **Design source** | Figma file with a Light/Dark color collection and a documented component library |
 
-### Home Page
-- src/components/HeroCarousel.jsx       — full-width image carousel with dots + prev/next arrows
-- src/components/FrequentlyUsedLinks.jsx — "Your most frequently-used links" 3-column grid
-- src/components/NewsSection.jsx        — company news + newswire two-column card grid (NewsCard supports an `href` or `onClick` prop to link to ArticlePage)
-- src/components/SocialMediaGallery.jsx — filterable social media thumbnail gallery
-- src/HomePage.jsx                      — the page itself, assembles all the above pieces together
+## Live links
 
-### Article Page (News Details)
-- src/ArticlePage.jsx — single full article view: date/author, headline, intro,
-  an optional "By / To" memo block, body paragraphs, a closing note, and tags.
-  Reuses Header, Footer, the sidebar nav items, and the breadcrumb trail for
-  consistency. Pulled from the real "Blog content-News Details" Figma frame;
-  sample names, emails and event details are genericized placeholders.
+- **Storybook (live component docs):** _deploying soon_
+- **Developer handoff guide:** [docs/DEVELOPER_GUIDE.md](docs/DEVELOPER_GUIDE.md)
+- **Figma design file:** view-only link available on request
 
-### News Listing Page (filterable)
-- src/components/NewsListingFilters.jsx — sidebar of collapsible filter groups
-  (dates, communication type, categories with a search box, departments,
-  product line), each with checkboxes and a count. Holds its own selection
-  state and reports changes up via onFilterChange. Includes "Clear All
-  Filters" once anything is checked.
-- src/components/NewsListingCard.jsx    — large article preview card (date,
-  department, title, snippet, optional corner label like "All Employees").
-  Accepts an href to link through to ArticlePage.
-- src/NewsListingPage.jsx               — the page itself: breadcrumb, banner,
-  filter sidebar + article grid. Filtering is real and client-side — checking
-  a filter narrows the visible articles by matching each article's tags
-  against the selected filter values. Comes with genericized sample filter
-  groups and sample articles so it's fully interactive out of the box; swap
-  in real data via the articles and filterGroups props. Pulled from the real
-  "Mazda News Latest-expanded data" Figma frame.
+## The problem
 
-## How to use this
+Design systems drift. The Figma file says one thing, the code says another, and every new screen re-implements the same button, form field or card. Colors get hard-coded, dark mode becomes a rewrite, and developers have no single place to see what already exists.
 
-These are plain React components using Tailwind-style utility classes for
-styling. They are not yet wired into a runnable project (no package.json,
-no build tool) — that next step needs a proper code environment such as
-Claude Code, CodeSandbox, or a local setup with Vite, since it can't be
-done over voice chat.
+## What I did
 
-You can open and read/edit every file right now in any text or code editor,
-for example VS Code, to get a feel for the structure.
+1. **Modernized the Figma library.** Organized the components page into clear sections (buttons, forms, typography, iconography, tables and charts, banners and carousels, search, layout) and defined Light and Dark color variables.
+2. **Turned the design into a token layer.** Every color is a CSS variable in [`src/theme/theme.css`](src/theme/theme.css). Components never use raw hex values, so Dark mode works everywhere from one attribute (`data-theme="dark"`).
+3. **Built a reusable React component library.** Small, composable components with sensible defaults and props, styled with Tailwind and the token variables.
+4. **Documented every component in Storybook.** Each component has states (default, hover, disabled, invalid and so on), controls, an auto-generated docs page, and an accessibility panel.
+5. **Assembled real page templates** (home, article, news listing with working filters, two-column) from the same components to prove the library holds together.
+6. **Wrote a developer handoff guide** covering setup, structure, tokens, theming and how to add a component.
 
-## Branding
+## What's in the library
 
-All visible "Mazda" text has been replaced with "Mozde" (component prop
-`brandName`, defaults to "Mozde"). The banner image and logo mark are left
-as placeholders — swap in your own fictional logo image when ready.
+| Area | Components |
+|---|---|
+| **Actions** | Primary and secondary buttons, tertiary links |
+| **Forms** | Text input, textarea, select, checkbox, radio and radio group, toggle, file upload |
+| **Typography and icons** | Headings H1 to H6, body text, link variants, list items, alerts, icon set |
+| **Data** | Table, line chart, area chart, donut chart |
+| **Navigation** | Header, footer, sidebar and accordion nav, breadcrumb, sitemap, back to top |
+| **Content** | Page banner, card, carousel, hero carousel, news cards and filters, social gallery, frequently used links |
+| **Search and notifications** | Search bar, search result, notification panel |
+| **Layout** | One, two and four column layouts |
 
-## Next steps
+## Tech stack
 
-1. Set up a runnable React project (Vite + Tailwind is the simplest combination).
-2. Drop these component files into src/.
-3. Add the Mozde logo/banner image assets.
-4. Preview locally, then deploy to Vercel (free tier supports password
-   protection for private client demos).
+React 19, Vite, Tailwind CSS 4, React Router, Storybook 10 (docs, a11y, Vitest and Playwright test integration).
+
+## Run it locally
+
+```bash
+npm install
+npm run storybook      # component docs at http://localhost:6006
+npm run dev            # the demo app
+npm run build-storybook
+```
+
+## Project structure
+
+```
+src/
+  components/    reusable components (one file per component)
+  stories/       Storybook stories and docs pages
+  theme/         theme.css (Light/Dark tokens) and ThemeToggle
+  data/          sample content for the page templates
+  *Page.jsx      page templates assembled from components
+.storybook/      Storybook config (theme switch, router context)
+docs/            developer handoff guide
+```
+
+## Notes
+
+- All names, emails, phone numbers and content in the samples are fictional placeholders.
+- Logos and photography are placeholders; swap in your own assets.
