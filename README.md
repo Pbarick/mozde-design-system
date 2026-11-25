@@ -16,9 +16,21 @@ An enterprise-style design system for a corporate newsroom and intranet portal: 
 
 ## Live links
 
-- **Storybook (live component docs):** _deploying soon_
+- **Storybook (live component docs):** https://pbarick.github.io/mozde-design-system/
 - **Developer handoff guide:** [docs/DEVELOPER_GUIDE.md](docs/DEVELOPER_GUIDE.md)
 - **Figma design file:** view-only link available on request
+
+## Where to find everything
+
+| What | Where |
+|---|---|
+| **Live component docs** | [Storybook](https://pbarick.github.io/mozde-design-system/) |
+| **React components** (32, reusable) | [`src/components/`](src/components) |
+| **Storybook stories** (one per component) | [`src/stories/`](src/stories) |
+| **Design tokens** (Light and Dark) | [`src/theme/theme.css`](src/theme/theme.css) |
+| **Page templates** built from the components | [`src/HomePage.jsx`](src/HomePage.jsx), [`ArticlePage.jsx`](src/ArticlePage.jsx), [`NewsListingPage.jsx`](src/NewsListingPage.jsx), [`TwoColumnPage.jsx`](src/TwoColumnPage.jsx) |
+| **Developer handoff guide** | [`docs/DEVELOPER_GUIDE.md`](docs/DEVELOPER_GUIDE.md) |
+| **Figma design file** | View-only link available on request |
 
 ## The problem
 
