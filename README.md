@@ -18,7 +18,7 @@ An enterprise-style design system for a corporate newsroom and intranet portal: 
 
 - **Storybook (live component docs):** https://pbarick.github.io/mozde-design-system/
 - **Developer handoff guide:** [docs/DEVELOPER_GUIDE.md](docs/DEVELOPER_GUIDE.md)
-- **Figma design file:** view-only link available on request
+- **Figma design file (view only):** https://www.figma.com/design/ztmcnediZTuNG30YyQCtyX/Mozde-Design-System?node-id=0-1
 
 ## Where to find everything
 
@@ -30,7 +30,7 @@ An enterprise-style design system for a corporate newsroom and intranet portal: 
 | **Design tokens** (Light and Dark) | [`src/theme/theme.css`](src/theme/theme.css) |
 | **Page templates** built from the components | [`src/HomePage.jsx`](src/HomePage.jsx), [`ArticlePage.jsx`](src/ArticlePage.jsx), [`NewsListingPage.jsx`](src/NewsListingPage.jsx), [`TwoColumnPage.jsx`](src/TwoColumnPage.jsx) |
 | **Developer handoff guide** | [`docs/DEVELOPER_GUIDE.md`](docs/DEVELOPER_GUIDE.md) |
-| **Figma design file** | View-only link available on request |
+| **Figma design file** | [View-only link](https://www.figma.com/design/ztmcnediZTuNG30YyQCtyX/Mozde-Design-System?node-id=0-1) |
 
 ## The problem
 
